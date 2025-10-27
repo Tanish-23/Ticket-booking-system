@@ -1,3 +1,4 @@
+package src.Gui;
 // MovieTicketBookingSystem.java
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

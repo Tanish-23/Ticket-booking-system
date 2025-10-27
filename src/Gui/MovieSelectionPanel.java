@@ -1,3 +1,4 @@
+package src.Gui;
 // MovieSelectionPanel.java
 import javax.swing.*;
 import javax.swing.border.TitledBorder;

@@ -1,5 +1,9 @@
+package src.WelcomePage;
 // WelcomePage.java
 import javax.swing.*;
+
+import src.Gui.MovieTicketBookingSystem;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
