@@ -1,8 +1,7 @@
-package src.Gui;
-// SummaryPanel.java
+package GUI;
+
 import javax.swing.*;
 import javax.swing.border.*;
-
 import java.awt.*;
 import java.util.Map;
 
@@ -19,9 +18,9 @@ public class SummaryPanel extends JPanel {
         setLayout(new BorderLayout());
         
         // Apply theme colors
-        setBackground(mainApp.getDarkBlue());
+        setBackground(mainApp.DARK_BLUE);
         TitledBorder border = new TitledBorder("Booking Summary & Pricing");
-        border.setTitleColor(mainApp.getYellow());
+        border.setTitleColor(mainApp.YELLOW);
         setBorder(border);
         
         summaryTextArea = new JTextArea(15, 25);
@@ -34,7 +33,7 @@ public class SummaryPanel extends JPanel {
         updateSummary();
         
         JScrollPane scrollPane = new JScrollPane(summaryTextArea);
-        scrollPane.setBackground(mainApp.getDarkBlue());
+        scrollPane.setBackground(mainApp.DARK_BLUE);
         add(scrollPane, BorderLayout.CENTER);
     }
     
@@ -54,9 +53,16 @@ public class SummaryPanel extends JPanel {
         
         // Show current pricing factors
         Map<String, Object> pricingDetails = mainApp.getPricingDetails();
-        double basePrice = ((Map<String, Double>)pricingDetails.get("BASE")).get(moviePanel.getSelectedFormat());
-        double moviePremium = ((Map<String, Double>)pricingDetails.get("MOVIE_PREMIUMS")).getOrDefault(moviePanel.getSelectedMovie(), 0.0);
-        double showTimeMultiplier = ((Map<String, Double>)pricingDetails.get("SHOWTIME_MULTIPLIERS")).get(moviePanel.getSelectedShowTime());
+        @SuppressWarnings("unchecked")
+        Map<String, Double> basePrices = (Map<String, Double>) pricingDetails.get("BASE");
+        @SuppressWarnings("unchecked")
+        Map<String, Double> moviePremiums = (Map<String, Double>) pricingDetails.get("MOVIE_PREMIUMS");
+        @SuppressWarnings("unchecked")
+        Map<String, Double> showTimeMultipliers = (Map<String, Double>) pricingDetails.get("SHOWTIME_MULTIPLIERS");
+        
+        double basePrice = basePrices.get(moviePanel.getSelectedFormat());
+        double moviePremium = moviePremiums.getOrDefault(moviePanel.getSelectedMovie(), 0.0);
+        double showTimeMultiplier = showTimeMultipliers.get(moviePanel.getSelectedShowTime());
         
         summary.append("PRICING FACTORS:\n");
         summary.append("  Base Price: Rs.").append(String.format("%.0f", basePrice)).append("\n");
@@ -72,10 +78,12 @@ public class SummaryPanel extends JPanel {
             summary.append("  No seats selected\n");
         } else {
             double totalAmount = 0;
+            @SuppressWarnings("unchecked")
+            Map<String, Double> multipliers = (Map<String, Double>) pricingDetails.get("MULTIPLIERS");
             for (String seat : selectedSeats) {
                 double seatPrice = mainApp.getSeatPrice(seat);
                 String seatType = mainApp.getSeatTypeName(seat);
-                double multiplier = ((Map<String, Double>)pricingDetails.get("MULTIPLIERS")).get(seatType);
+                double multiplier = multipliers.get(seatType);
                 
                 summary.append("  ").append(seat).append(" (")
                       .append(seatType).append(" ").append(String.format("%.1fx", multiplier))
@@ -89,7 +97,6 @@ public class SummaryPanel extends JPanel {
         
         summary.append("\nTOTAL AMOUNT: Rs.").append(String.format("%.0f", totalAmount)).append("\n\n");
         
-        // Seat type explanation
         summary.append("SEAT TYPES:\n");
         summary.append("  A: Premium (2.0x) - Best view\n");
         summary.append("  B: VIP (1.8x) - Great view\n");

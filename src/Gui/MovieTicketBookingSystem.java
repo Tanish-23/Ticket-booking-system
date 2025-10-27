@@ -1,5 +1,5 @@
-package src.Gui;
-// MovieTicketBookingSystem.java
+package GUI;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
@@ -185,8 +185,46 @@ public class MovieTicketBookingSystem {
         mainFrame.setVisible(true);
     }
     
-    // REST OF THE METHODS (seatSelected, selectionChanged, updateDisplay, confirmBooking, etc.)
-    // ... [Keep all your existing methods here unchanged]
+    public void seatSelected(String seat) {
+        if (selectedSeats.contains(seat)) {
+            selectedSeats.remove(seat);
+        } else {
+            selectedSeats.add(seat);
+        }
+        seatLayoutPanel.updateSeatDisplay();
+        summaryPanel.updateSummary();
+    }
+    
+    public void selectionChanged() {
+        seatLayoutPanel.updateSeatDisplay();
+        summaryPanel.updateSummary();
+    }
+    
+    public void confirmBooking() {
+        if (selectedSeats.isEmpty()) {
+            JOptionPane.showMessageDialog(mainFrame, "Please select at least one seat!", 
+                "Booking Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        StringBuilder confirmation = new StringBuilder();
+        confirmation.append("Booking Confirmed!\n\n");
+        confirmation.append("Location: ").append(locationPanel.getSelectedLocation()).append("\n");
+        confirmation.append("Movie: ").append(movieSelectionPanel.getSelectedMovie()).append("\n");
+        confirmation.append("Format: ").append(movieSelectionPanel.getSelectedFormat().replace("_", " ")).append("\n");
+        confirmation.append("Language: ").append(movieSelectionPanel.getSelectedLanguage()).append("\n");
+        confirmation.append("Show Time: ").append(movieSelectionPanel.getSelectedShowTime()).append("\n");
+        confirmation.append("Seats: ").append(String.join(", ", selectedSeats)).append("\n");
+        confirmation.append("Total Amount: Rs.").append(String.format("%.0f", calculateTotalAmount())).append("\n");
+        
+        seatLayoutPanel.markSeatsAsOccupied(selectedSeats);
+        selectedSeats.clear();
+        seatLayoutPanel.updateSeatDisplay();
+        summaryPanel.updateSummary();
+        
+        JOptionPane.showMessageDialog(mainFrame, confirmation.toString(), 
+            "Booking Confirmation", JOptionPane.INFORMATION_MESSAGE);
+    }
     
     public double calculateTotalAmount() {
         String format = movieSelectionPanel.getSelectedFormat();

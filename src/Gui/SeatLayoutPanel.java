@@ -1,8 +1,7 @@
-package src.Gui;
-// SeatLayoutPanel.java
+package GUI;
+
 import javax.swing.*;
 import javax.swing.border.*;
-
 import java.awt.*;
 import java.util.*;
 
@@ -19,9 +18,9 @@ public class SeatLayoutPanel extends JPanel {
         setLayout(new BorderLayout());
         
         // Apply theme colors
-        setBackground(mainApp.getDarkBlue());
+        setBackground(mainApp.DARK_BLUE);
         TitledBorder border = new TitledBorder("Seat Layout - Click to Select/Deselect (Prices vary by seat type)");
-        border.setTitleColor(mainApp.getYellow());
+        border.setTitleColor(mainApp.YELLOW);
         setBorder(border);
         
         // Screen representation
@@ -36,7 +35,7 @@ public class SeatLayoutPanel extends JPanel {
         
         seatGridPanel = new JPanel(new GridLayout(6, 8, 5, 5));
         seatGridPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
-        seatGridPanel.setBackground(mainApp.getDarkBlue());
+        seatGridPanel.setBackground(mainApp.DARK_BLUE);
         
         updateSeatDisplay();
         
@@ -44,7 +43,7 @@ public class SeatLayoutPanel extends JPanel {
         
         // Enhanced legend with prices
         JPanel legendPanel = new JPanel(new FlowLayout());
-        legendPanel.setBackground(mainApp.getDarkBlue());
+        legendPanel.setBackground(mainApp.DARK_BLUE);
         legendPanel.add(createLegendLabel("Premium (2x)", new Color(255, 165, 0)));
         legendPanel.add(createLegendLabel("VIP (1.8x)", new Color(148, 0, 211)));
         legendPanel.add(createLegendLabel("Executive (1.5x)", new Color(30, 144, 255)));

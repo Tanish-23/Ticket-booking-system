@@ -1,5 +1,5 @@
-package src.Gui;
-// MovieSelectionPanel.java
+package GUI;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
