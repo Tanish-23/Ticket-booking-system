@@ -59,9 +59,9 @@ The Cinemaghar Welcome Page will launch!
 
 Screenshots:
 
-Welcome Screen | Seat Selection | Booking Summary
--------------- | -------------- | ---------------
-| ![Welcome Screen](<img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/66ee2f6f-35b2-4ba7-ac0b-738a7226819c" />) | ![Seat Selection](<img width="603" height="272" alt="image" src="https://github.com/user-attachments/assets/6ab7960b-b311-4f44-95af-a1575952636d" />) | ![Booking Summary](<img width="793" height="811" alt="image" src="https://github.com/user-attachments/assets/986a6d2a-d83c-4d16-8325-09d40e52c02f" />) |
+(<img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/66ee2f6f-35b2-4ba7-ac0b-738a7226819c" />) 
+(<img width="603" height="272" alt="image" src="https://github.com/user-attachments/assets/6ab7960b-b311-4f44-95af-a1575952636d" />) 
+(<img width="793" height="811" alt="image" src="https://github.com/user-attachments/assets/986a6d2a-d83c-4d16-8325-09d40e52c02f" />) 
 
 
 Future Enhancements:
