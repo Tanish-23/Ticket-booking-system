@@ -2,7 +2,7 @@ Cinemaghar – Movie Ticket Booking System
 
 A fully interactive desktop application built using Java Swing that allows users to book movie tickets with real-time seat selection, dynamic pricing, and a user-friendly GUI.
 
-Features
+Features:
 
 - Welcome Screen with "BOOK MY SHOW" button
 - City & Area Selection (Mumbai, Delhi, etc.)
@@ -21,7 +21,7 @@ Features
 - Event-driven UI using ActionListener and lambda expressions
 - Input validation to prevent invalid bookings
 
-Tech Stack
+Tech Stack:
 
 - Language: Java (JDK 17+)
 - GUI Framework: Java Swing & AWT
@@ -29,27 +29,18 @@ Tech Stack
 - OOP Principles: Encapsulation, Abstraction, Event Handling
 - Package: src.GUI
 
-Project Structure
+Project Structure:
 
-Ticket-booking-system/
-├── src/
-│   └── GUI/
-│       ├── Main.java
-│       ├── WelcomePage.java
-│       ├── LocationPanel.java
-│       ├── MovieSelectionPanel.java
-│       ├── MovieTicketBookingSystem.java
-│       ├── SeatLayoutPanel.java
-│       └── SummaryPanel.java
-└── README.md
+<img width="911" height="305" alt="image" src="https://github.com/user-attachments/assets/87508c9f-65ca-4bdd-a5df-6364ad99a155" />
 
-How to Run
+
+How to Run:
 
 Prerequisites
 - Java JDK 17+ installed
 - PowerShell or Command Prompt
 
-Steps
+Steps:
 
 1. Clone the repository
    git clone https://github.com/your-username/Cinemaghar-Ticket-Booking.git
@@ -66,16 +57,16 @@ Steps
 
 The Cinemaghar Welcome Page will launch!
 
-Screenshots
+Screenshots:
 
 Welcome Screen | Seat Selection | Booking Summary
 --- | --- | ---
-![Welcome](<img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/66ee2f6f-35b2-4ba7-ac0b-738a7226819c" />) | ![Seats](<img width="603" height="272" alt="image" src="https://github.com/user-attachments/assets/6ab7960b-b311-4f44-95af-a1575952636d" />
-) | ![Summary](<img width="793" height="811" alt="image" src="https://github.com/user-attachments/assets/986a6d2a-d83c-4d16-8325-09d40e52c02f" />
-)
+![Welcome](<img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/66ee2f6f-35b2-4ba7-ac0b-738a7226819c" />) |
+![Seats](<img width="603" height="272" alt="image" src="https://github.com/user-attachments/assets/6ab7960b-b311-4f44-95af-a1575952636d" />) | 
+![Summary](<img width="793" height="811" alt="image" src="https://github.com/user-attachments/assets/986a6d2a-d83c-4d16-8325-09d40e52c02f" />)
 
 
-Future Enhancements
+Future Enhancements:
 
 - Add JDBC + SQLite for persistent booking storage
 - Generate PDF tickets
