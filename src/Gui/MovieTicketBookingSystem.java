@@ -23,12 +23,14 @@ public class MovieTicketBookingSystem {
     private Map<String, Map<String, Boolean>> seatLayouts;
     
     // Theme colors - MAKE THESE PUBLIC
+    public final Color LIGHT_BLUE = new Color(173, 216, 230); // Light blue background
+    public final Color LIGHT_GREY = new Color(211, 211, 211); // Light grey panels
     public final Color DARK_BLUE = new Color(25, 25, 112);
-    public final Color PURPLE = new Color(138, 43, 226);
-    public final Color YELLOW = Color.YELLOW;
-    public final Color ORANGE = Color.ORANGE;
     public final Color WHITE = Color.WHITE;
-    
+    public final Color BLACK = Color.BLACK;
+    public final Color ORANGE = Color.ORANGE;
+    public final Color YELLOW = Color.YELLOW;
+
     public void initialize() {
         selectedSeats = new HashSet<>();
         initializePricing();
@@ -118,21 +120,26 @@ public class MovieTicketBookingSystem {
         mainFrame = new JFrame("Cinemaghar - Movie Ticket Booking System");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setLayout(new BorderLayout(10, 10));
-        mainFrame.getContentPane().setBackground(DARK_BLUE);
+
+        // 🌈 Change background color to light blue
+        mainFrame.getContentPane().setBackground(LIGHT_BLUE);
 
         // Header with theme colors
+        
         JLabel headerLabel = new JLabel("CINEMAGHAR - BOOK YOUR EXPERIENCE", JLabel.CENTER);
         headerLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        headerLabel.setForeground(YELLOW);
+        headerLabel.setForeground(BLACK);
         headerLabel.setBorder(new EmptyBorder(10, 0, 10, 0));
         headerLabel.setOpaque(true);
-        headerLabel.setBackground(DARK_BLUE);
+        headerLabel.setBackground(LIGHT_BLUE);
         mainFrame.add(headerLabel, BorderLayout.NORTH);
+
         
         // Main panel with theme
         JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
         mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-        mainPanel.setBackground(DARK_BLUE);
+        mainPanel.setBackground(LIGHT_BLUE);
+
         
         // Initialize ALL panels first
         locationPanel = new LocationPanel(this);
@@ -142,14 +149,14 @@ public class MovieTicketBookingSystem {
         
         // Top panel with location and movie selection
         JPanel topPanel = new JPanel(new GridLayout(2, 1, 10, 10));
-        topPanel.setBackground(DARK_BLUE);
+        topPanel.setBackground(LIGHT_BLUE);
         topPanel.add(locationPanel);
         topPanel.add(movieSelectionPanel);
         mainPanel.add(topPanel, BorderLayout.NORTH);
         
         // Center panel with seats and summary
         JPanel centerPanel = new JPanel(new GridLayout(1, 2, 10, 0));
-        centerPanel.setBackground(DARK_BLUE);
+        centerPanel.setBackground(LIGHT_BLUE);
         centerPanel.add(seatLayoutPanel);
         centerPanel.add(summaryPanel);
         mainPanel.add(centerPanel, BorderLayout.CENTER);
@@ -175,7 +182,7 @@ public class MovieTicketBookingSystem {
         });
         
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(DARK_BLUE);
+        buttonPanel.setBackground(LIGHT_BLUE);
         buttonPanel.add(confirmButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
         
