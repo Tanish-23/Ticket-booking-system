@@ -26,29 +26,55 @@ public class MovieSelectionPanel extends JPanel {
     }
     
     private void initializePanel() {
-        setLayout(new GridLayout(4, 2, 10, 10));
-        setBorder(new TitledBorder("Movie Selection"));
-        
-        add(new JLabel("Select Movie:"));
-        movieComboBox = new JComboBox<>(latestMovies);
-        movieComboBox.addActionListener(e -> mainApp.selectionChanged());
-        add(movieComboBox);
-        
-        add(new JLabel("Select Format:"));
-        formatComboBox = new JComboBox<>(formats);
-        formatComboBox.addActionListener(e -> mainApp.selectionChanged());
-        add(formatComboBox);
-        
-        add(new JLabel("Select Language:"));
-        languageComboBox = new JComboBox<>(languages);
-        languageComboBox.addActionListener(e -> mainApp.selectionChanged());
-        add(languageComboBox);
-        
-        add(new JLabel("Select Show Time:"));
-        showTimeComboBox = new JComboBox<>(showTimes);
-        showTimeComboBox.addActionListener(e -> mainApp.selectionChanged());
-        add(showTimeComboBox);
-    }
+    setLayout(new GridLayout(4, 2, 10, 10));
+    
+    // Make background same as other panels
+    setBackground(new Color(25, 25, 112)); // Dark blue
+    TitledBorder border = new TitledBorder("Movie Selection");
+    border.setTitleColor(Color.YELLOW);
+    setBorder(border);
+    
+    // Movie
+    JLabel movieLabel = new JLabel("Select Movie:");
+    movieLabel.setForeground(Color.WHITE);
+    add(movieLabel);
+    
+    movieComboBox = new JComboBox<>(latestMovies);
+    movieComboBox.setBackground(Color.WHITE);
+    movieComboBox.addActionListener(e -> mainApp.selectionChanged());
+    add(movieComboBox);
+    
+    // Format
+    JLabel formatLabel = new JLabel("Select Format:");
+    formatLabel.setForeground(Color.WHITE);
+    add(formatLabel);
+    
+    formatComboBox = new JComboBox<>(formats);
+    formatComboBox.setBackground(Color.WHITE);
+    formatComboBox.addActionListener(e -> mainApp.selectionChanged());
+    add(formatComboBox);
+    
+    // Language
+    JLabel languageLabel = new JLabel("Select Language:");
+    languageLabel.setForeground(Color.WHITE);
+    add(languageLabel);
+    
+    languageComboBox = new JComboBox<>(languages);
+    languageComboBox.setBackground(Color.WHITE);
+    languageComboBox.addActionListener(e -> mainApp.selectionChanged());
+    add(languageComboBox);
+    
+    // Show Time
+    JLabel showTimeLabel = new JLabel("Select Show Time:");
+    showTimeLabel.setForeground(Color.WHITE);
+    add(showTimeLabel);
+    
+    showTimeComboBox = new JComboBox<>(showTimes);
+    showTimeComboBox.setBackground(Color.WHITE);
+    showTimeComboBox.addActionListener(e -> mainApp.selectionChanged());
+    add(showTimeComboBox);
+}
+
     
     public String getSelectedMovie() {
         return (String) movieComboBox.getSelectedItem();
