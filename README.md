@@ -43,7 +43,7 @@ Prerequisites
 Steps:
 
 1. Clone the repository
-   git clone https://github.com/your-username/Cinemaghar-Ticket-Booking.git
+   git clone https://github.com/Tanish-23/Ticket-booking-system.git
    cd Cinemaghar-Ticket-Booking
 
 2. Navigate to GUI folder
